@@ -17,10 +17,10 @@ async function createdb() {
         t.text('email').unique().notNullable;
         t.text('password').notNullable();
         t.text('role').checkIn(['ADMIN', 'MEMBER','TECHNICIAN']).notNullable();
-        t.text('designation');
-        t.text('company');
-        t.text('firstname').notNullable();
-        t.text('lastname').notNullable();
+        t.text('designation').defaultTo('');
+        t.text('company').defaultTo('');
+        t.text('firstname').notNullable().defaultTo('');
+        t.text('lastname').notNullable().defaultTo('');
       })
     await knex('users').insert({email: 'dummyemail', password: 'dummyhash', role: 'MEMBER', firstname:'', lastname:''})
     

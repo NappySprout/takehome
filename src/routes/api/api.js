@@ -18,8 +18,8 @@ router.use((req, res, next) => {
   next();
 })
 router.get('/get', get)
-router.get('/update', update)
-router.get('/remove', remove)
+router.post('/update', update)
+router.delete('/remove', remove)
 
 
 module.exports = router
