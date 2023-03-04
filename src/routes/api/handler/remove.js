@@ -8,9 +8,6 @@ const remove = async (req,res) => {
   if (!password) {return res.status(403).send('password field required')};
 
   const hashed = crypto.createHash('SHA256').update(password).digest('base64');
-  const query = await knex.select('password').from('users').where({email});
-
-  if (query.length != 1) {return res.status(403).send('email do not exist')};//guaranteed at most one 
   if (hashed != query[0].password) {return res.status(403).send('wrong password')};
 
   await knex('users').where({email}).del()
