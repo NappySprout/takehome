@@ -1,6 +1,6 @@
 const express = require('express')
 const router = express.Router()
-const {get, update, remove } = require('./handler')
+const {get, update, remove, reset } = require('./handler')
 const jwt = require('jsonwebtoken');
 
 router.use((req, res, next) => {
@@ -19,6 +19,7 @@ router.use((req, res, next) => {
 })
 router.get('/get', get)
 router.post('/update', update)
+router.post('/reset', reset)
 router.delete('/remove', remove)
 
 
