@@ -1,7 +1,7 @@
 const knex = require('knex')({
   client: 'sqlite3',
   connection: {
-    filename: './data.db',
+    filename: './db/data.db',
   },
   useNullAsDefault: true,
 });
@@ -10,7 +10,7 @@ async function createdb() {
   try {
     //drops if present
     await knex.schema
-      .dropTableIfExists('users')
+      //.dropTableIfExists('users')
 
       .createTable('users', t => {
         t.increments('id').primary()
