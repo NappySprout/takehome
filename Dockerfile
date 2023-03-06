@@ -20,4 +20,4 @@ CMD [ "node", "src/index.js" ]
 #Set up
 #docker build . -t takehome
 #Run
-#docker run takehome -d -p 3000:3000 --env-file ./.env -v /Users/sleepylog/Documents/jsfile/takehome/db:/usr/src/app/db
+#docker run -d -p 3000:3000 --env-file ./.env -v /Users/sleepylog/Documents/jsfile/takehome/db:/usr/src/app/db takehome
